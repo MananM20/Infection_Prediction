@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="og:title" content="Your Health" />
+    <meta name="author" content="Manan devansh vedant and Pratham" />
+    <meta
+      name="Keywords"
+      content="Flask, Machine Learning, Artificial Intelligence, AI, ML, Web Development"
+    />
+    <meta
+      name="description"
+      content="A Prediction website for diseases using Machine Learning."
+    />
+    <title>Cancer Prediction</title>
+    <!-- <link rel="icon" href="{{ url_for('static', filename = 'logo1.png') }}" type="image/icon type"> -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(140, 150, 158);
+      }
+
+      header {
+        height: 50px;
+      }
+      footer {
+        height: 75px;
+        display: flex;
+        background: black;
+        padding: 10px;
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark">
+      <div class="container">
+        <button
+          data-toggle="collapse"
+          class="navbar-toggler"
+          data-target="#navcol-1"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav flex-grow-1 justify-content-between">
+            <li
+              class="nav-item active"
+              style="font-size: large; text-decoration: underline"
+            >
+              <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+            </li>
+            <li
+              class="nav-item active"
+              style="font-size: large; text-decoration: underline"
+            >
+              <a class="nav-link" href="{{ url_for('diabetesPage') }}"
+                >Diabetes</a
+              >
+            </li>
+            <li
+              class="nav-item active"
+              style="font-size: large; text-decoration: underline"
+            >
+              <a class="nav-link" href="{{ url_for('heartPage') }}">Heart</a>
+            </li>
+            <li
+              class="nav-item active"
+              style="font-size: large; text-decoration: underline"
+            >
+              <a class="nav-link" href="{{ url_for('kidneyPage') }}">Kidney</a>
+            </li>
+            <li
+              class="nav-item active"
+              style="font-size: large; text-decoration: underline"
+            >
+              <a class="nav-link" href="{{ url_for('liverPage') }}">Liver</a>
+            </li>
+            <li
+              class="nav-item active"
+              style="font-size: large; text-decoration: underline"
+            >
+              <a class="nav-link" href="{{ url_for('cancerPage') }}">Cancer</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <main>
+      <div class="row" style="margin-bottom: 175px">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <center>
+            <h1>Cancer Prediction</h1>
+          </center>
+          <div
+            class="card card-body"
+            style="border: 1px solid black; border-radius: 1em"
+          >
+            <form class="form-horizontal" action="/predict" method="POST">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="age"
+                      placeholder="Age"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="Gender"
+                      placeholder="Gender (Male:1, female:2)"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="AirPollution"
+                      placeholder="Air Pollution Level"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="Alcoholuse"
+                      placeholder="Alcoholuse"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="DustAllergy"
+                      placeholder="Dust Allergy"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="OccuPationalHazards"
+                      placeholder="OccuPational Hazards"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="GeneticRisk"
+                      placeholder="Genetic Risk"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="chronicLungDisease"
+                      placeholder="Chronic Lung Disease"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="BalancedDiet"
+                      placeholder="Balanced Diet"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="Obesity"
+                      placeholder="Obesity"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="Smoking"
+                      placeholder="Smoking"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="PassiveSmoker"
+                      placeholder="Passive Smoker"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="CoughingofBlood"
+                      placeholder="CoughingofBlood"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="ChestPain"
+                      placeholder="Chest Pain"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="Fatigue"
+                      placeholder="Fatigue"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="WeightLoss"
+                      placeholder="Weight Loss"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="ShortnessofBreath"
+                      placeholder="Shortness of Breath"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="Wheezing"
+                      placeholder="Wheezing"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="SwallowingDifficulty"
+                      placeholder="Swallowing Difficulty"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="ClubbingofFingerNails"
+                      placeholder="Clubbing of FingerNails"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="FrequentCold"
+                      placeholder="Frequent Cold"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="DryCough"
+                      placeholder="Dry Cough"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input
+                      style="border: 1px solid black"
+                      class="form-control"
+                      type="text"
+                      name="Snoring"
+                      placeholder="Snoring"
+                    />
+                  </div>
+                </div>
+                <!-- <div class="col-md-4">
+                                <div class="form-group">
+                                    <input style="border: 1px solid black;" class="form-control" type="text" name="Level"
+                                        placeholder="Level(low, medium, high)">
+                                </div>
+                            </div> -->
+              </div>
+              <a href="{{ url_for('predictPage') }}"
+                ><input
+                  type="submit"
+                  class="btn btn-info btn-block"
+                  value="Predict"
+              /></a>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </main>
+    <!-- <footer>
+        <center>
+            <ul style="list-style-type:none;">
+                <li>
+                    <p style="color: white;">Made<span> by ETD_03 Group</span>
+                    </p>
+                </li>
+            </ul>
+        </center>
+    </footer> -->
+  </body>
+</html>

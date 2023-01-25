@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="og:title" content="Your Health">
+    <meta name="author" content="Manan Devansh Vedant and Pratham">
+    <meta name="Keywords" content="Flask, Machine Learning, Artificial Intelligence, AI, ML, Web Development">
+    <meta name="description" content="A Prediction website for diseases using Machine Learning.">
+    <title>Your Health Matters</title>
+    <!-- <link rel="icon" href="{{ url_for('static', filename = 'logo.jgp') }}" type="image/icon type"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" href="style.css"
+     crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(140, 150, 158);
+        }
+
+        header {
+            height: 50px;
+        }
+        footer {
+            height: 75px;
+            display: flex;
+            background: black;
+            padding: 10px;
+            display: flex;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        .col{
+            float: left;
+            width: 50%;
+           padding: 5px;
+        }
+        .row::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark">
+        
+        <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav flex-grow-1 justify-content-between">
+                    <li class="nav-item active" style="font-size: large; text-decoration: underline; ">
+                    <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item active" style="font-size: large; text-decoration: underline; ">
+                    <a class="nav-link" href="{{ url_for('diabetesPage') }}">Diabetes</a>
+                </li>
+                <li class="nav-item active" style="font-size: large; text-decoration: underline;">
+                    <a class="nav-link" href="{{ url_for('heartPage') }}">Heart</a>
+                </li>
+                <li class="nav-item active" style="font-size: large; text-decoration: underline;">
+                    <a class="nav-link" href="{{ url_for('kidneyPage') }}">Kidney</a>
+                </li>
+                <li class="nav-item active" style="font-size: large; text-decoration: underline;">
+                    <a class="nav-link" href="{{ url_for('liverPage') }}">Liver</a>
+                </li>
+                <li class="nav-item active" style="font-size: large; text-decoration: underline;">
+                    <a class="nav-link" href="{{ url_for('cancerPage') }}">Cancer</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <main>
+
+        
+        <div class="container-fluid" style="margin-bottom: 20px; padding-top: 20px; ">
+            <div class="container">
+                <div class="card card-body"
+                    style="border: 5px solid black; box-shadow: 0 0 10px black; border-radius: 2em; background-color: rgb(211, 217, 222);">
+                    <h2 style="text-decoration: underline;">Welcome to Health-Care</h2>
+
+                    <p>Health-Care is a Health Prediction Website. </p>
+                    <br>
+                    <h3 style="text-decoration: underline;">Model Accuracies</h3>
+                    <ul>
+                        <li>Diabetes Model: 80%</li>
+                        <li>Heart Disease Model: 85%</li>
+                        <li>Kidney Disease Model: 100%</li>
+                        <li>Liver Disease Model: 73%</li>
+                        <li>Cancer  Model: 100%</li> 
+
+                    </ul>
+                    <br>
+                    <h3 style="text-decoration: underline;">Information and Resources</h3>
+
+                    <div class="row">
+                        <div class="col-md-12 card card-body"
+                            style="box-shadow: 0 0 5px black; margin: 5px; border-radius: 2em;">
+                            <h4 style="text-decoration: underline;" ;">Diabetes</h4><br>
+                            
+                            <p>Diabetes is a disease that occurs when your blood glucose, also called blood sugar, is
+                                too high. Blood glucose is your main source of energy and comes from the food you eat.
+                                Insulin, a hormone made by the pancreas, helps glucose from food get into your cells to
+                                be used for energy. Sometimes your body doesn’t make enough—or any—insulin or doesn’t
+                                use insulin well. Glucose then stays in your blood and doesn’t reach your cells.</p>
+                            <h5>Symptoms</h5>
+                            <ul>
+                                <li>Urinating often.</li>
+                                <li>Feeling very thirsty.</li>
+                                <li>Extreme fatigue.</li>
+                                <li>Blurry vision.</li>
+                            </ul>
+                            <br>
+                            <a
+                                href="https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes#:~:text=Diabetes%20is%20a%20disease%20that,to%20be%20used%20for%20energy.">Learn
+                                More</a>
+                            <br>
+                            <div class="row">
+                            <div class="col">
+                            <iframe width="520" height="320" src="https://www.youtube.com/embed/XfyGv-xwjlI"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                            </div>    
+                                <div class="col">
+                                        <!-- <img src="static\logo1.png" width="520" height="320"> -->
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12 card card-body"
+                            style="box-shadow: 0 0 5px black; margin: 5px; border-radius: 2em;">
+                            <h4 style="text-decoration: underline;">Chronic kidney disease</h4>
+                            <p>Chronic kidney disease, also called chronic kidney failure, describes the gradual loss of
+                                kidney function. Your kidneys filter wastes and excess fluids from your blood, which are
+                                then excreted in your urine. When chronic kidney disease reaches an advanced stage,
+                                dangerous levels of fluid, electrolytes and wastes can build up in your body.</p>
+                            <h5>Symptoms</h5>
+                            <ul>
+                                <li>Nausea</li>
+                                <li>Vomiting</li>
+                                <li>Fatigue and weakness</li>
+                                <li>Muscle twitches and cramps</li>
+                            </ul>
+                            <br>
+                            <a
+                                href="https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd#:~:text=Chronic%20kidney%20disease%20(CKD)%20means,family%20history%20of%20kidney%20failure.">Learn
+                                More</a>
+                            <br>
+                            <iframe width="550" height="320" src="https://www.youtube.com/embed/JjcqY95HR1o"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12 card card-body"
+                            style="box-shadow: 0 0 5px black; margin: 5px; border-radius: 2em;">
+                            <h4 style="text-decoration: underline;">Liver disease</h4>
+                            <p>The liver is an organ about the size of a football. It sits just under your rib cage on
+                                the right side of your abdomen. The liver is essential for digesting food and ridding
+                                your body of toxic substances.
+
+                                Liver disease can be inherited (genetic). Liver problems can also be caused by a variety
+                                of factors that damage the liver, such as viruses, alcohol use and obesity.
+
+                                Over time, conditions that damage the liver can lead to scarring (cirrhosis), which can
+                                lead to liver failure, a life-threatening condition. But early treatment may give the
+                                liver time to heal.</p>
+                            <h5>Symptoms</h5>
+                            <ul>
+                                <li>Skin and eyes that appear yellowish (jaundice)</li>
+                                <li>Abdominal pain and swelling</li>
+                                <li>Swelling in the legs and ankles</li>
+                                <li>Itchy skin</li>
+                                <li>Chronic fatigue</li>
+                                <li>Loss of appetite</li>
+                            </ul>
+                            <br>
+                            <a
+                                href="https://www.mayoclinic.org/diseases-conditions/liver-problems/symptoms-causes/syc-20374502">Learn
+                                More</a>
+                            <br>
+                            <iframe width="550" height="320" src="https://www.youtube.com/embed/OLd3PFLfGl4"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12 card card-body"
+                            style="box-shadow: 0 0 5px black; margin: 5px; border-radius: 2em;">
+                            <h4 style="text-decoration: underline;">Heart Disease</h4>
+                            <p>Heart disease, such as coronary heart disease, heart attack, congestive heart failure,
+                                and congenital heart disease, is the leading cause of death for men and women in the
+                                U.S. Prevention includes quitting smoking, lowering cholesterol, controlling high blood
+                                pressure, maintaining a healthy weight, and exercising.</p>
+                            <h5>Symptoms</h5>
+                            <ul>
+                                <li>Shortness of breath</li>
+                                <li>Pain in the neck, jaw, throat, upper abdomen or back</li>
+                                <li>Pain, numbness, weakness or coldness in your legs or arms if the blood vessels in
+                                    those parts of your body are narrowed</li>
+                                <li>Chest pain, chest tightness, chest pressure and chest discomfort (angina)</li>
+                            </ul>
+                            <br>
+                            <a href="https://www.cdc.gov/heartdisease/about.htm">Learn More</a>
+                            <br>
+                            <iframe width="550" height="320" src="https://www.youtube.com/embed/qJq5hA4pnOk"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12 card card-body"
+                            style="box-shadow: 0 0 5px black; margin: 5px; border-radius: 2em;">
+                            <h4 style="text-decoration: underline;">Cancer</h4>
+                            <p> Cancer refers to any one of a large number of diseases characterized 
+                                by the development of abnormal cells that divide uncontrollably and
+                                have the ability to infiltrate and destroy normal body tissue.
+                                Cancer often has the ability to spread throughout your body.
+
+                                Cancer is the second-leading cause of death in the world.
+                                But survival rates are improving for many types of cancer,
+                                thanks to improvements in cancer screening, treatment and prevention.</p>
+                            <h5>Symptoms</h5>
+                            <ul>
+                                <li>Lump or area of thickening that can be felt under the skin</li>
+                                <li>Weight changes, including unintended loss or gain</li>
+                                <li>Skin changes, such as yellowing, darkening or redness of the skin,
+                                    sores that won't heal, or changes to existing moles</li>
+                                <li>Persistent indigestion or discomfort after eating</li>
+                                <li>Changes in bowel or bladder habits</li>
+                                <li>Unexplained bleeding or bruising</li>
+                            </ul>
+                            <br>
+                            <a
+                                href="https://www.mayoclinic.org/diseases-conditions/cancer/symptoms-causes/syc-20370588">Learn
+                                More</a>
+                            <br>
+                            <iframe width="550" height="320" src="https://www.youtube.com/embed/achc7de5N3Y"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>
